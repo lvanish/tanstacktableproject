@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>table</h1>
+      <h1>Tanstack table</h1>
       <BasicTable />
     </>
   )
