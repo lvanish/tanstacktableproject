@@ -1,5 +1,6 @@
 import {useReactTable, flexRender, getCoreRowModel} from '@tanstack/react-table'
 import mData from '../MOCK_DATA.json'
+import {DateTime} from 'luxon'
 import { useMemo } from 'react'
 export default function BasicTable() {
 
@@ -13,14 +14,8 @@ export default function BasicTable() {
       footer: 'ID',
     },
     {
-      header: 'First name',
-      accessorKey: 'first_name',
-      footer: 'First name',
-    },
-    {
-      header: 'Last name',
-      accessorKey: 'last_name',
-      footer: 'Last name',
+      header: 'Name',
+      accessorFn: row => `${row.first_name} ${row.last_name}`
     },
     {
       header: 'Email',
@@ -36,6 +31,7 @@ export default function BasicTable() {
       header: 'Date of birth',
       accessorKey: 'dob',
       footer: 'Date of birth',
+      cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
     },
   ]
 
