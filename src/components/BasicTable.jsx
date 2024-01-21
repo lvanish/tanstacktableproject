@@ -43,9 +43,9 @@ export default function BasicTable() {
   const table = useReactTable({data, columns, getCoreRowModel: getCoreRowModel()})
 
   return (
-    <div>
-      <table>
-        <thead>
+    <div className="overflow-x-auto pt-6">
+      <table className='table'>
+        <thead className="bg-base-200 ">
           {table.getHeaderGroups().map(x => (
             <tr key={x.id}>
               {x.headers.map(head => (

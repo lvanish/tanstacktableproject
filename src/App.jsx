@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>Tanstack table</h1>
+      <h1 className="text-3xl font-bold underline">Tanstack table</h1>
       <BasicTable />
     </>
   )
