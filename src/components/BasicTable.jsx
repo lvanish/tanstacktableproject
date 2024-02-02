@@ -59,9 +59,11 @@ export default function BasicTable() {
 
   return (
     <div className="overflow-x-auto pt-6">
-      <input type='text' value={filtering} onChange={e => setFiltering(e.target.value)}/>
+      <div className='flex flex-row-reverse pb-4'>
+      <input type='text' placeholder="Search in table" value={filtering} onChange={e => setFiltering(e.target.value)} className="input input-bordered w-full max-w-xs"/>
+      </div>
       <table className='table'>
-        <thead className="bg-base-200 ">
+        <thead className="bg-base-200">
           {table.getHeaderGroups().map(x => (
             <tr key={x.id}>
               {x.headers.map(head => (
@@ -97,10 +99,12 @@ export default function BasicTable() {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className="flex justify-between mt-4">
         <button className='btn' onClick={() => table.setPageIndex(0)}>First Page</button>
-        <button className='btn' disabled={!table.getCanPreviousPage()} onClick={() => table.previousPage()}>Previous Page</button>
-        <button className='btn' disabled={!table.getCanNextPage()} onClick={() => table.nextPage()}>Next Page</button>
+        <div>
+          <button className='btn mr-2' disabled={!table.getCanPreviousPage()} onClick={() => table.previousPage()}>Previous Page</button>
+          <button className='btn' disabled={!table.getCanNextPage()} onClick={() => table.nextPage()}>Next Page</button>
+        </div>
         <button className='btn' onClick={() => table.setPageIndex(table.getPageCount() - 1)}>Last Page</button>
       </div>
     </div>
